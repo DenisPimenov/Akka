@@ -1,0 +1,27 @@
+akka {
+    log-config-on-start = off
+    stdout-loglevel = DEBUG
+    loglevel = DEBUG
+    actor {
+        debug {
+            receive = on
+        }
+    }
+    persistence.journal {
+                        plugin = "akka.persistence.journal.redis"
+                        redis {
+                            class = "Akka.Persistence.Redis.Journal.RedisJournal, Akka.Persistence.Redis"
+                            plugin-dispatcher = "akka.actor.default-dispatcher"
+    						configuration-string = "10.129.36.76:6379"
+    						database = 0
+                        }
+}
+external {
+    api {
+        ecomUrl = "http://ecom.ru"
+    }
+}
+
+
+
+
